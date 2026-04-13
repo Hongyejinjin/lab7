@@ -23,4 +23,6 @@ int main()
 
     CDAccount acc2;
     acc2 = doublebalance(acc1);
+
+    std::cout << acc2.balance << " " << acc2.interest << std::endl;
 }
