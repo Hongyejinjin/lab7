@@ -16,10 +16,10 @@ enum studentsName
     numOfStudents,
 };
 
-void printStudentName(studentsName s4)
+void printStudentName(studentsName s1)
 {
     
-    switch (s4) {
+    switch (s1) {
         case kim:
             std::cout << "KIM"; break;
         case lee:
@@ -66,23 +66,23 @@ void score2grade(const int& score, char& grade)
 }
     //inputStudent: 리턴은 없고, 매개변수는 student형 참조,
 	//student의 name은 rand()함수로 값을 넣고, student의 id, score를 입력받고, student의 grade는 3-1함수를 사용
-void inputStudent(student& NAME)
+void inputStudent(student& s2)
 {
-    NAME.name = (studentsName)(rand() % numOfStudents);
+    s2.name = (studentsName)(rand() % numOfStudents);
     std::cout << "Enter id: ";
-    std::cin >> NAME.id;
+    std::cin >> s2.id;
     std::cout << "Enter score: ";
-    std::cin >> NAME.score;
-    score2grade(NAME.score, NAME.grade);
+    std::cin >> s2.score;
+    score2grade(s2.score, s2.grade);
 }
 
     //printStudent: 리턴은 없고, 매개변수는 const student형 참조,
 	//name, id: score(grade) 형식으로 출력, name은 printStudentName 함수이용
 
-void printstudent(const student& NAME)
+void printstudent(const student& s3)
 {
-    printStudentName(NAME.name);
-    std::cout << ", " << NAME.id << ": " << NAME.score << "(" << NAME.grade << ")" << std::endl;   
+    printStudentName(s3.name);
+    std::cout << ", " << s3.id << ": " << s3.score << "(" << s3.grade << ")" << std::endl;   
 }
     //4. main 구현
 	//첫번째 student를 선언하고 이를 inputStudent에 인자로 넣어 호출, printStudent에 인자로 넣어 호출합니다. 
@@ -91,13 +91,13 @@ void printstudent(const student& NAME)
 
     int main()
     {
-        student s1;
-        inputStudent(s1);
-        printstudent(s1);
-        student s2;
-        printstudent(s2);
+        student s4;
+        inputStudent(s4);
+        printstudent(s4);
+        student s5;
+        printstudent(s5);
         
-        student s3{ park, 3741299, 98, 'A' };
-        printstudent(s3);
+        student s6{ park, 3741299, 98, 'A' };
+        printstudent(s6);
         return 0;
     }
