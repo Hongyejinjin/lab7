@@ -1,25 +1,15 @@
 #include <iostream>
 #include <cstdlib>
-//1. 열거형 studentsName 정의: kim, lee, park, numOfStudents
-	//printStudentName 함수 정의: 리턴은 없고, 매개변수는 studentsName형 1개
-	//매개변수에 따라
-	//kim은 KIM, 을 출력
-	//lee는 LEE, 를 출력
-	//park은 PARK, 를 출력
-	//kim, lee, park이 아니면 NO NAME, 을 출력
 
 enum studentsName
 {
-    kim,             //0
-    lee,             //1
-    park,            //2
-    numOfStudents    //3  // , 없어도 된다.
+    kim, lee, park, numOfStudents,
 };
 
-void printStudentName(const studentsName name)
+void printStudentName(studentsName s1)
 {
     
-    switch (name) {
+    switch (s1) {
         case kim:
             std::cout << "KIM"; break;
         case lee:
@@ -27,7 +17,7 @@ void printStudentName(const studentsName name)
         case park:
             std::cout << "PARK"; break;
         default:
-            std::cout << "NO NAME";
+            std::cout << "NO NAME"; break;
     }
 
 }
@@ -66,40 +56,45 @@ void score2grade(const int& score, char& grade)
 }
     //inputStudent: 리턴은 없고, 매개변수는 student형 참조,
 	//student의 name은 rand()함수로 값을 넣고, student의 id, score를 입력받고, student의 grade는 3-1함수를 사용
-void inputStudent(student& s)
+void inputStudent(student& s2)
 {
-    s.name = static_cast<studentsName>(rand() % numOfStudents);
+    s2.name; //
+    
+    
+    
+    
+    
+    
+    s2.name = (studentsName)(rand() % numOfStudents);
     std::cout << "Enter id: ";
-    std::cin >> s.id;
+    std::cin >> s2.id;
     std::cout << "Enter score: ";
-    std::cin >> s.score;
-    score2grade(s.score, s.grade);
+    std::cin >> s2.score;
+    score2grade(s2.score, s2.grade);
 }
 
     //printStudent: 리턴은 없고, 매개변수는 const student형 참조,
 	//name, id: score(grade) 형식으로 출력, name은 printStudentName 함수이용
 
-void printstudent(const student& s1)
+void printstudent(const student& s3)
 {
-    printStudentName(s1.name);
-    std::cout << ", " << s1.id << ": " << s1.score << "(" << s1.grade << ")" << std::endl;   
+    printStudentName(s3.name);
+    std::cout << ", " << s3.id << ": " << s3.score << "(" << s3.grade << ")" << std::endl;   
 }
     //4. main 구현
 	//첫번째 student를 선언하고 이를 inputStudent에 인자로 넣어 호출, printStudent에 인자로 넣어 호출합니다. 
-	//두번째 student를 선언하고 이를 printStudent에 인자로 넣어 호출합니다. //이때 출력되는 값은 무엇인가요? 참조했던 것
+	//두번째 student를 선언하고 이를 printStudent에 인자로 넣어 호출합니다. //이때 출력되는 값은 무엇인가요?
 	//세번째 student를 원하는 값을  초기화리스트로 넣어 선언하고 이를 printStudent에 인자로 넣어 호출합니다. 
 
     int main()
     {
-        student s2{};
-        inputStudent(s2);
-        printstudent(s2);
-        
-        student s3{};
-        printstudent(s3); //기본값
-        
-        student s4{ park, 3741299, 98, 'A' };
+        student s4;
+        inputStudent(s4);
         printstudent(s4);
+        student s5;
+        printstudent(s5);
         
+        student s6{ park, 3741299, 98, 'A' };
+        printstudent(s6);
         return 0;
     }
